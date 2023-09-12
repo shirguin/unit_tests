@@ -49,7 +49,12 @@ public class Calculator {
     public static double calculatingDiscount(double purchaseAmount, int discountAmount) {
         // purchaseAmount - сумма покупки
         // discountAmount - размер скидки
-        double result = purchaseAmount * ((100 - discountAmount)/100);
-        return result; // Метод должен возвращать сумму покупки со скидкой
+        if (purchaseAmount > 0 && discountAmount >= 0){
+            double result = purchaseAmount * (100 - discountAmount)/100;
+            return result; // Метод должен возвращать сумму покупки со скидкой
+        }else {
+            throw new ArithmeticException("Сумма и процент дисконта должны быть положительным числом");
+        }
+
     }
 }
